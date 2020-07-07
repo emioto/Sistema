@@ -13,15 +13,6 @@ abstract class PadraoUpdateController extends PadraoAutenticadorController
 
     }
 
-    protected abstract function definirRegrasDeValidacao();
-    protected function validar()
-    {
-        $validation->setRules([
-            'username' => ['label' => 'Username', 'rules' => 'required'],
-            'password' => ['label' => 'Password', 'rules' => 'required|min_length[10]']
-        ]);
-    }
-
     protected function carregarView($tipoDaView)
     {
         switch ($tipoDaView)
