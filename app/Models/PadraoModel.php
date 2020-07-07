@@ -26,4 +26,13 @@ abstract class PadraoModel extends Model
 
     protected abstract function definirCamposPermitidosAlterar();
     protected abstract function definirRegrasDeValidacao();
+
+    public function Obter($id)
+    {
+        return  $this->db
+                     ->table($this->table)
+                     ->where($this->primaryKey, $id)
+                     ->get()
+                     ->getRowObject();
+    }
 }

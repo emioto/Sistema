@@ -29,4 +29,14 @@ abstract class UsuarioModel extends PadraoModel
             'Administrador' => 'required'
         ];
     }
+
+    public function ObterPorEmailSenha($viewModel)
+    {
+        return  $this->db
+                     ->table($this->table)
+                     ->where("Email", $viewModel->Email)
+                     ->where("Senha", $viewModel->Senha)
+                     ->get()
+                     ->getRowObject();
+    }
 }

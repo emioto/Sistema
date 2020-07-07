@@ -8,10 +8,13 @@ abstract class ServicoPadrao
     function __construct()
     {
         if(!isset($this->validacao)) { $this->validacao = \Config\Services::validation(); }
+
+        $this->definirRegrasDeValidacao();
     }
 
     protected abstract function definirRegrasDeValidacao();
-    protected function realizarValidacao($viewModel)
+    
+    protected function realizarValidacao(&$viewModel)
     {
         $viewModel->errosDeValidacao = $this->validacao->run($viewModel)->getErrors();
     }
