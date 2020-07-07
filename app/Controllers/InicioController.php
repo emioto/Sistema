@@ -1,5 +1,6 @@
 <?php namespace App\Controllers;
 
+use App\Enums\TipoDaViewEnum;
 use App\Controllers\Padrao\PadraoController;
 
 class Inicio extends PadraoController
@@ -11,6 +12,6 @@ class Inicio extends PadraoController
 
 	public function Index()
 	{
-		return $this->carregarView();
+		return $this->carregarView(TipoDaViewEnum::Comum);
 	}
 }

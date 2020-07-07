@@ -40,8 +40,20 @@ abstract class PadraoController extends Controller
 		return redirect(base_url($rota));
 	}
 
-	protected function carregarView()
+	protected function carregarView($tipoDaView)
     {
-    	return view($this->nomeDaView, (array)$this->updateViewModel);
+        switch ($tipoDaView)
+        {
+             default:
+             case TipoDaViewEnum::Aviso:
+                 return view("AvisoView");
+             case TipoDaViewEnum::Erro:
+                 return view("ErroView");
+             case TipoDaViewEnum::Grid:
+             case TipoDaViewEnum::Update:
+                 return view($this->nomeDaView, $this->updateViewModel);
+             case TipoDaViewEnum::Comum:
+                 return view($this->nomeDaView);
+        }
     }
 }
