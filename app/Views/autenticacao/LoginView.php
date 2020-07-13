@@ -20,7 +20,7 @@
 <?= $this->endSection() ?>
 <?= $this->section('conteudo') ?>
 <div class="row justify-content-center" style="height: 90%;">
-    <div class="col-sm-12 col-md-4 col-lg-4 col-xl-4 align-self-center">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 align-self-center">
         <form class="form-signin">
             <center><h1 class="h3 mb-3">. . : Autenticação : . .</h1></center>
             <label for="inputEmail" class="sr-only">E-mail</label>
