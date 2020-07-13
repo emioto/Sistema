@@ -2,6 +2,7 @@
 namespace App\Controllers\Padrao;
 
 use CodeIgniter\Controller;
+use App\Enums\TipoDaViewEnum;
 
 abstract class PadraoController extends Controller
 {

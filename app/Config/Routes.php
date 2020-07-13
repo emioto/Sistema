@@ -31,6 +31,7 @@ $routes->setAutoRoute(false);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->add('inicio', 'InicioController::Index');
+$routes->add('autenticacao/login', 'Autenticacao\LoginController::Index');
 
 // Rotas de Redirecionamento
 $routes->addRedirect('/', 'inicio');
