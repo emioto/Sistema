@@ -17,7 +17,7 @@ abstract class PadraoModel extends Model
 
     function __construct()
     {
-        $this->table = str_replace("Model", "", $this::class);
+        $this->table = str_replace("Model", "", get_class($this));
         $this->primaryKey = "Id";
 
         $this->definirCamposPermitidosAlterar();

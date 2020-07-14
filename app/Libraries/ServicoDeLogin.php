@@ -10,6 +10,7 @@ class ServicoDeLogin extends ServicoPadrao
 
     protected function definirRegrasDeValidacao()
     {
+        $this->repositorioDeUsuario = new UsuarioModel();
         $this->validacao->setRules([
             'Email' => ['label' => 'E-mail', 'rules' => 'required'],
             'Senha' => ['label' => 'Senha', 'rules' => 'required']

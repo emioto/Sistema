@@ -28,8 +28,7 @@ class LoginController extends PadraoController
 
         if(count($this->updateViewModel->Mensagens) > 0)
         { 
-            $this->updateViewModel->AtualizarMensagens();
-            return $this->carregarView(TipoDaViewEnum::Update);
+            return $this->redirecionar('autenticacao/login');
         }
         else 
         { 

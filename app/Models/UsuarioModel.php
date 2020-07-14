@@ -1,7 +1,7 @@
 <?php 
 namespace App\Models;
 
-abstract class UsuarioModel extends PadraoModel
+class UsuarioModel extends PadraoModel
 {
     protected $returnType = 'App\Entities\Usuario';
 
