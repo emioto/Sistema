@@ -21,6 +21,9 @@ class LoginController extends PadraoController
 		return $this->carregarView(TipoDaViewEnum::Update);
     }
 
+    /**
+	 * METODO :: POST
+	 */
     public function Login()
     {
         $this->updateViewModel = $this->converterObjetoRequestParaViewModel($this->request->getPost(), LoginViewModel::class);
