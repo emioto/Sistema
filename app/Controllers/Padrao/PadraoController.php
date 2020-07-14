@@ -26,19 +26,28 @@ abstract class PadraoController extends Controller
 	 *
 	 * @var array
 	 */
-    protected $helpers = []; 
-
+	protected $helpers = [];
+	
+	/**
+	 * Sessão atual ativa para o usuário autenticado
+     * se estiver vazia significa que o usuário não foi autenticado.
+	 * @var array
+	 */
+	protected $sessao;
+	
 	/**
 	 * Constructor.
 	 */
 	public function initController(\CodeIgniter\HTTP\RequestInterface $request, \CodeIgniter\HTTP\ResponseInterface $response, \Psr\Log\LoggerInterface $logger)
 	{
-        parent::initController($request, $response, $logger);
+		parent::initController($request, $response, $logger);
+		
+		$this->sessao = \Config\Services::session();
     }
 	
     protected function redirecionar($rota) 
 	{
-		return redirect(base_url($rota));
+		return redirect()->route($rota);
 	}
 
 	protected function carregarView($tipoDaView)

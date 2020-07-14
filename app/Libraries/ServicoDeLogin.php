@@ -2,6 +2,7 @@
 namespace App\Libraries;
 
 use App\Models\UsuarioModel;
+use App\Enums\MensagemTipoEnum;
 
 class ServicoDeLogin extends ServicoPadrao
 {
@@ -9,23 +10,23 @@ class ServicoDeLogin extends ServicoPadrao
 
     protected function definirRegrasDeValidacao()
     {
-        $validation->setRules([
-            'email' => ['label' => 'E-mail', 'rules' => 'required'],
-            'senha' => ['label' => 'Senha', 'rules' => 'required']
+        $this->validacao->setRules([
+            'Email' => ['label' => 'E-mail', 'rules' => 'required'],
+            'Senha' => ['label' => 'Senha', 'rules' => 'required']
         ]);
     }
 
-    public function ObterParaLogin($viewModel)
+    public function validar($viewModel)
     {
         $this->realizarValidacao($viewModel);
 
-        if(count($viewModel->ValidacaoView) <= 0)
+        if(count($viewModel->Mensagens) <= 0)
         {
             $usuario = $this->repositorioDeUsuario->ObterPorEmailSenha($viewModel);
         
             if(!isset($usuario)) 
             { 
-                array_push($viewModel->ValidacaoView, ['E-mail e ou Senha' => 'Não foi possível localizar o usuário informado, por favor verifique se seu email e ou senha estão corretos!.']); 
+                array_push($viewModel->Mensagens, ['IdMensagemTipo' => MensagemTipoEnum::Erro, 'Mensagem' => 'Não foi possível localizar o usuário informado, por favor verifique se seu email e ou senha estão corretos!.']); 
             }
         }
 

@@ -36,7 +36,7 @@
             <label for="inputEmail" class="sr-only">E-mail</label>
             <input name="Email" type="email" id="inputEmail" class="form-control mb-3" placeholder="E-mail" required autofocus>
             <label for="inputSenha" class="sr-only">Senha</label>
-            <input name="Senha" type="password" id="inputSenha" class="form-control mb-3" placeholder="Senha" required>
+            <input name="Senha" type="password" id="inputSenha" class="form-control mb-3" placeholder="Senha">
             <div class="d-flex justify-content-between mb-3">
                 <span><input type="checkbox" value="remember-me"> Lembrar-me</span>
                 <span><a href="">Esqueceu sua senha?</a></span>

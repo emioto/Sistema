@@ -1,6 +1,8 @@
 <?php 
 namespace App\Libraries;
 
+use App\Enums\MensagemTipoEnum;
+
 abstract class ServicoPadrao
 {
     protected $validacao;
@@ -16,6 +18,11 @@ abstract class ServicoPadrao
     
     protected function realizarValidacao(&$viewModel)
     {
-        $viewModel->Mensagens = $this->validacao->run($viewModel)->getErrors();
+        $this->validacao->run((array)$viewModel);
+
+        foreach($this->validacao->getErrors() as $erro)
+        {
+            array_push($viewModel->Mensagens, (object)['IdMensagemTipo' => MensagemTipoEnum::Erro, 'Mensagem' => $erro]);
+        }
     }
 }
