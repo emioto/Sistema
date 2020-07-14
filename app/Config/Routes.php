@@ -37,7 +37,7 @@ $routes->add('autenticacao/login', 'Autenticacao\LoginController::Index');
 $routes->addRedirect('/', 'inicio');
 
 // Rotas POST
-$routes->post('autenticacao/autenticarusuario', 'Autenticacao\LoginController::AutenticarUsuario');
+$routes->post('autenticacao/login', 'Autenticacao\LoginController::Login');
 
 /**
  * --------------------------------------------------------------------

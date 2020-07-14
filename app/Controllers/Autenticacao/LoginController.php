@@ -21,14 +21,15 @@ class LoginController extends PadraoController
 		return $this->carregarView(TipoDaViewEnum::Update);
     }
 
-    public function AutenticarUsuario()
+    public function Login()
     {
         $this->updateViewModel = $this->converterObjetoRequestParaViewModel($this->request->getPost(), LoginViewModel::class);
         $this->servicoDeLogin->validar($this->updateViewModel);
 
         if(count($this->updateViewModel->Mensagens) > 0)
         { 
-            return $this->redirecionar('autenticacao/login');
+            $this->updateViewModel->AtualizarMensagens();
+            return $this->carregarView(TipoDaViewEnum::Update);
         }
         else 
         { 
