@@ -2,6 +2,10 @@
 <?= $this->section('titulo') ?>Login<?= $this->endSection() ?>
 <?= $this->section('estilo') ?>
 <style>
+    a {
+        text-decoration: none;
+    }
+
     main {
         color: #fff;
         background-color: #343a40;
@@ -21,14 +25,16 @@
 <?= $this->section('conteudo') ?>
 <div class="row justify-content-center" style="height: 90%;">
     <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 align-self-center">
-        <form class="form-signin">
+        <form class="form-signin" action="" method="POST">
             <center><h1 class="h3 mb-3">. . : Autenticação : . .</h1></center>
+            <?= view('/errors/BlocoDeErrosEMensagensView') ?>
             <label for="inputEmail" class="sr-only">E-mail</label>
-            <input type="email" id="inputEmail" class="form-control mb-3" placeholder="E-mail" required autofocus>
+            <input name="Email" type="email" id="inputEmail" class="form-control mb-3" placeholder="E-mail" required autofocus>
             <label for="inputSenha" class="sr-only">Senha</label>
-            <input type="password" id="inputSenha" class="form-control mb-3" placeholder="Senha" required>
-            <div class="checkbox mb-3">
-                <label><input type="checkbox" value="remember-me"> Lembrar</label>
+            <input name="Senha" type="password" id="inputSenha" class="form-control mb-3" placeholder="Senha" required>
+            <div class="d-flex justify-content-between mb-3">
+                <span><input type="checkbox" value="remember-me"> Lembrar-me</span>
+                <span><a href="">Esqueceu sua senha?</a></span>
             </div>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
         </form>

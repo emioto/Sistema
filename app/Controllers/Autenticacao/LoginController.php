@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Autenticacao;
 
 use App\Enums\TipoDaViewEnum;
+use App\ViewModel\LoginViewModel;
 use App\Controllers\Padrao\PadraoController;
 
 class LoginController extends PadraoController
@@ -12,6 +13,7 @@ class LoginController extends PadraoController
 
 	public function Index()
 	{
-		return $this->carregarView(TipoDaViewEnum::Comum);
+        $this->updateViewModel = new LoginViewModel();
+		return $this->carregarView(TipoDaViewEnum::Update);
     }
 }

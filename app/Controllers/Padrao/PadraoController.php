@@ -47,14 +47,15 @@ abstract class PadraoController extends Controller
         {
              default:
              case TipoDaViewEnum::Aviso:
-                 return view("AvisoView");
+                return view("AvisoView");
              case TipoDaViewEnum::Erro:
-                 return view("ErroView");
+                return view("ErroView");
              case TipoDaViewEnum::Grid:
-             case TipoDaViewEnum::Update:
-                 return view($this->nomeDaView, $this->updateViewModel);
+			 case TipoDaViewEnum::Update:
+				$this->updateViewModel->AtualizarMensagens();
+                return view($this->nomeDaView, (array)$this->updateViewModel);
              case TipoDaViewEnum::Comum:
-                 return view($this->nomeDaView);
+                return view($this->nomeDaView);
         }
     }
 }

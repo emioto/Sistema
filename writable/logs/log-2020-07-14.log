@@ -1,0 +1,26 @@
+CRITICAL - 2020-07-14 09:45:13 --> Class 'App\Controllers\Padrao\MensagemTipoEnum' not found
+#0 C:\Users\emioto\Downloads\Sistema\app\Controllers\Autenticacao\LoginController.php(17): App\Controllers\Padrao\PadraoController->carregarView(4)
+#1 C:\Users\emioto\Downloads\Sistema\system\CodeIgniter.php(914): App\Controllers\Autenticacao\LoginController->Index()
+#2 C:\Users\emioto\Downloads\Sistema\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autenticacao\LoginController))
+#3 C:\Users\emioto\Downloads\Sistema\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\Users\emioto\Downloads\Sistema\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\Users\emioto\Downloads\Sistema\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\emioto...')
+#6 {main}
+CRITICAL - 2020-07-14 09:49:45 --> Class 'App\ViewModel\MensagemTipoEnum' not found
+#0 C:\Users\emioto\Downloads\Sistema\app\Controllers\Padrao\PadraoController.php(56): App\ViewModel\PadraoViewModel->AtualizarMensagens()
+#1 C:\Users\emioto\Downloads\Sistema\app\Controllers\Autenticacao\LoginController.php(17): App\Controllers\Padrao\PadraoController->carregarView(4)
+#2 C:\Users\emioto\Downloads\Sistema\system\CodeIgniter.php(914): App\Controllers\Autenticacao\LoginController->Index()
+#3 C:\Users\emioto\Downloads\Sistema\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autenticacao\LoginController))
+#4 C:\Users\emioto\Downloads\Sistema\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\emioto\Downloads\Sistema\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\emioto\Downloads\Sistema\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\emioto...')
+#7 {main}
+CRITICAL - 2020-07-14 09:50:21 --> Use of undefined constant Mensagem - assumed 'Mensagem' (this will throw an Error in a future version of PHP)
+#0 C:\Users\emioto\Downloads\Sistema\app\ViewModel\PadraoViewModel.php(16): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Use of undefine...', 'C:\\Users\\emioto...', 16, Array)
+#1 C:\Users\emioto\Downloads\Sistema\app\Controllers\Autenticacao\LoginController.php(16): App\ViewModel\PadraoViewModel->__construct()
+#2 C:\Users\emioto\Downloads\Sistema\system\CodeIgniter.php(914): App\Controllers\Autenticacao\LoginController->Index()
+#3 C:\Users\emioto\Downloads\Sistema\system\CodeIgniter.php(400): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Autenticacao\LoginController))
+#4 C:\Users\emioto\Downloads\Sistema\system\CodeIgniter.php(308): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#5 C:\Users\emioto\Downloads\Sistema\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#6 C:\Users\emioto\Downloads\Sistema\system\Commands\Server\rewrite.php(34): require_once('C:\\Users\\emioto...')
+#7 {main}
