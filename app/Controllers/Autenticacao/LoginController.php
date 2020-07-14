@@ -16,4 +16,9 @@ class LoginController extends PadraoController
         $this->updateViewModel = new LoginViewModel();
 		return $this->carregarView(TipoDaViewEnum::Update);
     }
+
+    public function AutenticarUsuario()
+    {
+        $viewModel = $this->converterObjetoRequestParaViewModel($this->request->getPost(), LoginViewModel::class);
+    }
 }

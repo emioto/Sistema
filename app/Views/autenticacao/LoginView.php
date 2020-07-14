@@ -6,6 +6,11 @@
         text-decoration: none;
     }
 
+    .alert > ul
+    {
+        margin-bottom: unset;
+    }
+
     main {
         color: #fff;
         background-color: #343a40;
@@ -25,7 +30,7 @@
 <?= $this->section('conteudo') ?>
 <div class="row justify-content-center" style="height: 90%;">
     <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 align-self-center">
-        <form class="form-signin" action="" method="POST">
+        <form class="form-signin" action="<?= base_url('autenticacao/autenticarusuario') ?>" method="post">
             <center><h1 class="h3 mb-3">. . : Autenticação : . .</h1></center>
             <?= view('/errors/BlocoDeErrosEMensagensView') ?>
             <label for="inputEmail" class="sr-only">E-mail</label>

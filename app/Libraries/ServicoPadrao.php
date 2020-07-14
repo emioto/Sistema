@@ -16,6 +16,6 @@ abstract class ServicoPadrao
     
     protected function realizarValidacao(&$viewModel)
     {
-        $viewModel->ValidacaoView = $this->validacao->run($viewModel)->getErrors();
+        $viewModel->Mensagens = $this->validacao->run($viewModel)->getErrors();
     }
 }

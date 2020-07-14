@@ -1,17 +1,16 @@
 <?php 
-namespace App\Views\errors; 
-use App\Enums\MensagemTipoEnum;
+namespace App\Views\errors;
 
-echo var_dump($PossuiMensagemAviso);
-echo var_dump($PossuiMensagemErro);
-echo var_dump($PossuiMensagemSucesso);
+use App\Enums\MensagemTipoEnum;
 ?>
 
 <?php if ($PossuiMensagemAviso) : ?>
 	<div class="alert alert-warning alert-dismissible fade show" role="alert">
 		<ul>
-			<?php foreach ($ValidacaoView as $mensagemAviso) : ?>
-				<li><?= $mensagemAviso->Mensagem ?></li>
+			<?php foreach ($Mensagens as $mensagemAviso) : ?>
+				<?php if($mensagemAviso->IdMensagemTipo == MensagemTipoEnum::Aviso): ?>
+					<li><?= $mensagemAviso->Mensagem ?></li>
+				<?php endif ?>
 			<?php endforeach ?>
 		</ul>
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -21,23 +20,31 @@ echo var_dump($PossuiMensagemSucesso);
 <?php endif ?>
 
 <?php if ($PossuiMensagemErro) : ?>
-	<ul class="alert alert-dismissible alert-danger">
-	<?php foreach ($ValidacaoView as $mensagemErro) : ?>
-		<li><?= $mensagemErro->Mensagem ?></li>
-	<?php endforeach ?>
+	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		<ul>
+			<?php foreach ($Mensagens as $mensagemErro) : ?>
+				<?php if($mensagemErro->IdMensagemTipo == MensagemTipoEnum::Erro): ?>
+					<li><?= $mensagemErro->Mensagem ?></li>
+				<?php endif ?>
+			<?php endforeach ?>
+		</ul>
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
-	</ul>
+	</div>
 <?php endif ?>
 
-<?php if ($PossuiMensagemSucesso) : ?>
-	<ul class="alert alert-dismissible alert-success">
-	<?php foreach ($ValidacaoView as $mensagemSucesso) : ?>
-		<li><?= $mensagemSucesso->Mensagem ?></li>
-	<?php endforeach ?>
+<?php if ($PossuiMensagemComum) : ?>
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		<ul>
+			<?php foreach ($Mensagens as $mensagemComum) : ?>
+				<?php if($mensagemComum->IdMensagemTipo == MensagemTipoEnum::Comum): ?>	
+					<li><?= $mensagemComum->Mensagem ?></li>
+				<?php endif ?>
+			<?php endforeach ?>
+		</ul>
 		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 			<span aria-hidden="true">&times;</span>
 		</button>
-	</ul>
+	</div>
 <?php endif ?>

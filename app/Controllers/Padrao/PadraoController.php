@@ -57,5 +57,31 @@ abstract class PadraoController extends Controller
              case TipoDaViewEnum::Comum:
                 return view($this->nomeDaView);
         }
-    }
+	}
+	
+	protected function converterObjetoRequestParaViewModel($origem, $destino)
+	{
+		if (is_array($origem)) { $origem = (object)$origem; }
+		if (is_string($destino)) { $destino = new $destino(); }
+
+		$sourceReflection = new \ReflectionObject($origem);
+		$destinationReflection = new \ReflectionObject($destino);
+		$sourceProperties = $sourceReflection->getProperties();
+		
+		foreach ($sourceProperties as $sourceProperty) 
+		{
+			$sourceProperty->setAccessible(true);
+			$name = $sourceProperty->getName();
+			$value = $sourceProperty->getValue($origem);
+			if ($destinationReflection->hasProperty($name)) 
+			{
+				$propDest = $destinationReflection->getProperty($name);
+				$propDest->setAccessible(true);
+				$propDest->setValue($destino, $value);
+			} 
+			else { $destino->$name = $value; }
+		}
+		
+		return $destino;
+	}
 }
