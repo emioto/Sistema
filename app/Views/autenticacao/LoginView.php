@@ -11,16 +11,6 @@
         margin-bottom: unset;
     }
 
-    main {
-        color: #fff;
-        background-color: #343a40;
-    }
-
-    .form-control, .form-control:focus {
-        color: #fff;
-        background-color: #343a40;
-    }
-
     .form-signin {
         width: 100%;
         padding: 15px;
@@ -29,14 +19,14 @@
 <?= $this->endSection() ?>
 <?= $this->section('conteudo') ?>
 <div class="row justify-content-center" style="height: 90%;">
-    <div class="col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 align-self-center">
+    <div class="col-12 col-sm-9 col-md-6 col-lg-4 col-xl-4 align-self-center">
         <form class="form-signin" action="<?= base_url('autenticacao/login') ?>" method="post">
             <center><h1 class="h3 mb-3">. . : Autenticação : . .</h1></center>
             <?= view('/errors/BlocoDeErrosEMensagensView') ?>
             <label for="inputEmail" class="sr-only">E-mail</label>
-            <input name="Email" type="email" id="inputEmail" class="form-control mb-3" placeholder="E-mail" required autofocus>
+            <input name="Email" type="email" id="inputEmail" class="form-control mb-3" placeholder="E-mail" autocomplete="username" autofocus>
             <label for="inputSenha" class="sr-only">Senha</label>
-            <input name="Senha" type="password" id="inputSenha" class="form-control mb-3" placeholder="Senha">
+            <input name="Senha" type="password" id="inputSenha" class="form-control mb-3" placeholder="Senha" autocomplete="current-password">
             <div class="d-flex justify-content-between mb-3">
                 <span><input type="checkbox" value="remember-me"> Lembrar-me</span>
                 <span><a href="">Esqueceu sua senha?</a></span>

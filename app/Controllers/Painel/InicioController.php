@@ -1,4 +1,4 @@
-<?php namespace App\Controllers;
+<?php namespace App\Controllers\Painel;
 
 use App\Enums\TipoDaViewEnum;
 use App\Controllers\Padrao\PadraoController;
@@ -7,7 +7,7 @@ class InicioController extends PadraoController
 {
 	function __construct()
 	{
-		$this->nomeDaView = "InicioView";
+		$this->nomeDaView = "painel/InicioView";
 	}
 
 	public function Index()

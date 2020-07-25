@@ -2,6 +2,7 @@
 namespace App\Libraries;
 
 use App\Enums\MensagemTipoEnum;
+use App\ViewModel\MensagemViewModel;
 
 abstract class ServicoPadrao
 {
@@ -19,10 +20,13 @@ abstract class ServicoPadrao
     protected function realizarValidacao(&$viewModel)
     {
         $this->validacao->run((array)$viewModel);
-
         foreach($this->validacao->getErrors() as $erro)
-        {
-            array_push($viewModel->Mensagens, (object)['IdMensagemTipo' => MensagemTipoEnum::Erro, 'Mensagem' => $erro]);
+        {        
+            $viewModel->AdicionarMensagem
+            (
+                MensagemTipoEnum::Erro,
+                $erro
+            ); 
         }
     }
 }

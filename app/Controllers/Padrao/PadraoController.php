@@ -58,7 +58,8 @@ abstract class PadraoController extends Controller
              case TipoDaViewEnum::Aviso:
                 return view("AvisoView");
              case TipoDaViewEnum::Erro:
-                return view("ErroView");
+				return view("ErroView");
+			 case TipoDaViewEnum::Autenticacao:
              case TipoDaViewEnum::Grid:
 			 case TipoDaViewEnum::Update:
 				$this->updateViewModel->AtualizarMensagens();
@@ -68,29 +69,29 @@ abstract class PadraoController extends Controller
         }
 	}
 	
-	protected function converterObjetoRequestParaViewModel($origem, $destino)
+	protected function converterObjetoRequestParaViewModel($requestObject, $viewModel)
 	{
-		if (is_array($origem)) { $origem = (object)$origem; }
-		if (is_string($destino)) { $destino = new $destino(); }
+		if (is_array($requestObject)) { $requestObject = (object)$requestObject; }
+		if (is_string($viewModel)) { $viewModel = new $viewModel(); }
 
-		$sourceReflection = new \ReflectionObject($origem);
-		$destinationReflection = new \ReflectionObject($destino);
+		$sourceReflection = new \ReflectionObject($requestObject);
+		$destinationReflection = new \ReflectionObject($viewModel);
 		$sourceProperties = $sourceReflection->getProperties();
 		
 		foreach ($sourceProperties as $sourceProperty) 
 		{
 			$sourceProperty->setAccessible(true);
 			$name = $sourceProperty->getName();
-			$value = $sourceProperty->getValue($origem);
+			$value = $sourceProperty->getValue($requestObject);
 			if ($destinationReflection->hasProperty($name)) 
 			{
 				$propDest = $destinationReflection->getProperty($name);
 				$propDest->setAccessible(true);
-				$propDest->setValue($destino, $value);
+				$propDest->setValue($viewModel, $value);
 			} 
-			else { $destino->$name = $value; }
+			else { $viewModel->$name = $value; }
 		}
 		
-		return $destino;
+		return $viewModel;
 	}
 }

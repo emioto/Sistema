@@ -8,4 +8,5 @@ class TipoDaViewEnum
     const Grid = 3;
     const Update = 4;
     const Comum = 5;
+    const Autenticacao = 6;
 }

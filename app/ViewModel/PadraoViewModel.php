@@ -30,4 +30,13 @@ abstract class PadraoViewModel
         $this->PossuiMensagemErro = $this->PossuiMensagem(MensagemTipoEnum::Erro);
         $this->PossuiMensagemComum = $this->PossuiMensagem(MensagemTipoEnum::Comum);
     }
+
+    function AdicionarMensagem($idMensagemTipo, $texto)
+    {
+        $mensagem = new MensagemViewModel();;
+        $mensagem->IdMensagemTipo = $idMensagemTipo;
+        $mensagem->Mensagem = $texto;
+
+        array_push($this->Mensagens, $mensagem); 
+    }
 }

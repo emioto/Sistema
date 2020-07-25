@@ -4,6 +4,7 @@ use App\Enums\TipoDaViewEnum;
 use App\Libraries\ServicoDeLogin;
 use App\ViewModel\LoginViewModel;
 use App\Controllers\Padrao\PadraoController;
+use App\ViewModel\UsuarioAutenticadoViewModel;
 
 class LoginController extends PadraoController
 {
@@ -18,12 +19,9 @@ class LoginController extends PadraoController
 	public function Index()
 	{
         $this->updateViewModel = new LoginViewModel();
-		return $this->carregarView(TipoDaViewEnum::Update);
+		return $this->carregarView(TipoDaViewEnum::Autenticacao);
     }
 
-    /**
-	 * METODO :: POST
-	 */
     public function Login()
     {
         $this->updateViewModel = $this->converterObjetoRequestParaViewModel($this->request->getPost(), LoginViewModel::class);
@@ -32,12 +30,14 @@ class LoginController extends PadraoController
         if(count($this->updateViewModel->Mensagens) > 0)
         { 
             $this->updateViewModel->AtualizarMensagens();
-            return $this->carregarView(TipoDaViewEnum::Update);
+            return $this->carregarView(TipoDaViewEnum::Autenticacao);
         }
         else 
         { 
-            $usuario = new \stdClass();
+            $usuario = new UsuarioAutenticadoViewModel();
             $this->sessao->set('usuario', $usuario);
         }
+
+        return $this->redirecionar('painel/inicio');
     }
 }

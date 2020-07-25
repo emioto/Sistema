@@ -23,11 +23,17 @@ class ServicoDeLogin extends ServicoPadrao
 
         if(count($viewModel->Mensagens) <= 0)
         {
-            $usuario = $this->repositorioDeUsuario->ObterPorEmailSenha($viewModel);
+            //$usuario = $this->repositorioDeUsuario->ObterPorEmailSenha($viewModel);
+        
+            $usuario = 'testre';
         
             if(!isset($usuario)) 
             { 
-                array_push($viewModel->Mensagens, ['IdMensagemTipo' => MensagemTipoEnum::Erro, 'Mensagem' => 'Não foi possível localizar o usuário informado, por favor verifique se seu email e ou senha estão corretos!.']); 
+                $viewModel->AdicionarMensagem
+                (
+                    MensagemTipoEnum::Erro,
+                    "Não foi possível localizar o usuário informado, por favor verifique se seu email e ou senha estão corretos!"
+                ); 
             }
         }
 
